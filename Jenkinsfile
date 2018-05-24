@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
+                bat 'pylint --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --rcfile myconfig.pylintrc src/source_code >lint.log | exit 0'
                 step([
                         $class: 'WarningsPublisher',
                         parserConfigurations: [[
