@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
-                bat 'echo "hello"'
                 bat 'pylint src/source_code > lint.log'
+                bat 'echo "BUILD END"
             }
         }
     }
