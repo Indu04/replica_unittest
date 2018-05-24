@@ -5,7 +5,7 @@ pipeline {
             steps {
                 bat 'dir'
                 bat 'echo "hello"'
-                bat 'pylint "src\source_code"'
+                bat 'pylint "src/source_code"'
             }
         }
     }
