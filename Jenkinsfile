@@ -4,11 +4,12 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
+                bat 'pep8 . > peplint.log'
                 step([
                         $class: 'WarningsPublisher',
                         parserConfigurations: [[
-                            parserName: 'PyLint',
-                            pattern: 'lint.log']],
+                            parserName: 'Pep8',
+                            pattern: 'peplint.log']],
                         unstableTotalAll           : '0',
                         usePreviousBuildAsReference: true
                     ])
