@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'dir'
-                bat 'pep8 . > peplint.log'
                 step([
                         $class: 'WarningsPublisher',
                         parserConfigurations: [[
