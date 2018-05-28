@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'pylint --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --rcfile myconfig.pylintrc src/source_code >lint.log | exit 0'
+                bat 'cd..|pylint --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --rcfile %JOB_NAME%/myconfig.pylintrc %JOB_NAME% >lint.log | exit 0'
                 bat 'pep8 --config myconfig.pep8  src/source_code >peplint.log | exit 0'
                 step([
                         $class: 'WarningsPublisher',
