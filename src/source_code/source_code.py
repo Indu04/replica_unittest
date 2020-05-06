@@ -1,6 +1,6 @@
 '''
 Created on Sep 4, 2017
-test edit
+test edit in replica
 @author: Indu
 '''
 import sys
